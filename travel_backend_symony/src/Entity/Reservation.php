@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ContactRepository;
+use App\Repository\ReservationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ContactRepository::class)]
-class Contact
+#[ORM\Entity(repositoryClass: ReservationRepository::class)]
+class Reservation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -23,13 +23,10 @@ class Contact
     #[ORM\Column(length: 255)]
     private ?string $Email = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Subject = null;
-
     #[ORM\Column(type: Types::TEXT)]
     private ?string $Message = null;
 
-    #[ORM\ManyToOne(inversedBy: 'contacts')]
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
     private ?status $status = null;
 
     public function getId(): ?int
@@ -73,18 +70,6 @@ class Contact
         return $this;
     }
 
-    public function getSubject(): ?string
-    {
-        return $this->Subject;
-    }
-
-    public function setSubject(string $Subject): static
-    {
-        $this->Subject = $Subject;
-
-        return $this;
-    }
-
     public function getMessage(): ?string
     {
         return $this->Message;
@@ -108,5 +93,4 @@ class Contact
 
         return $this;
     }
-
 }
