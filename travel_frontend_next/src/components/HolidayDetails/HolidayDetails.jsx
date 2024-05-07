@@ -1,19 +1,24 @@
-import Link from "next/link";
 
-export default function HolidayList(props) {
+import HolidayImage from "../HolidayImage/HolidayImage";
+
+export default function HolidayDetails(props) {
     return(
         <>
-        {props.holidays && (
-            <ul className="holiday-list">
-                {props.holidays.map((hldays, index) => (
-                    <Link key={index} href={"/holiday/" + holiday.id}>
-                        <li>
-                            <HolidayHomePage
-                        </li>
-                    </Link>
-                ))}
-            </ul>
-        )}
+    <div className="Holiday-details">
+      {props.image && (
+        <HolidayImage/>
+      )}
+      <div className="holiday-information">
+        <p>{props.destination}</p>
+        <p>{props.voyagers}x voyagers</p>
+        <p>{props.duration} nights</p>
+        <p>{props.startDate}</p>
+        <p>{props.price}Euros pp</p>
+        <p>{props.rating} Stars</p>
+        <p>{props.hotelDetails}</p>
+        <p>{props.locationDetails}</p>
+      </div>
+    </div>
         </>
 );
 }

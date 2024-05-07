@@ -1,16 +1,27 @@
 import Link from "next/link";
+import "./Navbar.css";
 
 export default function Navbar() {
-    return(
-        <div className=" d-flex justify-content-between">
-        <div className="navbar_design d-flex justify-content-between">
-            <img src=""></img>
-            <div>
-            <Link href={"./page.jsx"}>Home</Link>
-            <Link href={"./HolidayList.jsx"}>Destinations</Link>
-            <Link href={"./Contact"}>Contact</Link> 
-        </div>
-        </div>
-        </div>
-    );
+  const brand = "Logo";
+
+  return (
+    <div className="navbar">
+      <Link href="/" className="logo">
+        {brand}
+      </Link>
+      <nav>
+        <ul className="navigation">
+          <li>
+            <Link href="/">Home</Link>
+          </li>  
+          <li>
+            <Link href="/holiday">Destinations</Link>
+           </li> 
+           <li>
+            <Link href="/Contact">Contact</Link> 
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
 }

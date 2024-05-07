@@ -2,8 +2,11 @@
 
 import "./page.css";
 import { useEffect, useState } from "react";
-import Navbar from "@/components/navbar/Navbar";
-import HolidayDetails from "@/app/page";
+
+import Navbar from "@/src/components/Navbar/Navbar";
+
+import HolidayCard from "@/src/components/Holidaycard/HolidayCard";
+
 
 export default function Holidays() {
   // Initialisation des états pour gérer le chargement, les erreurs, et les données reçues.
@@ -14,11 +17,11 @@ export default function Holidays() {
   useEffect(() => {
     // Déclenchement de la récupération des données de personnages au montage du composant.
     try {
-      fetch("https://localhost:3000.com/api/holiday")
+      fetch("http://127.0.0.1:8000/api/holidays")
         .then((response) => response.json()) // Transformation de la réponse en JSON.
         .then((data) => {
           setLoading(false); // Arrêt de l'indicateur de chargement après la réception des données.
-          setData(data.results); // Enregistrement des données reçues dans l'état 'data'.
+          setData(data); // Enregistrement des données reçues dans l'état 'data'.
         });
     } catch (error) {
       setError(true); // Enregistrement de l'erreur dans l'état 'error'.
@@ -30,8 +33,8 @@ export default function Holidays() {
     <main>
       <Navbar />
       {/* Affichage conditionnel en fonction de l'état du chargement et des erreurs */}
-      {loading && !error && <div>Données en cours de chargement !</div>}
-      {!loading && !error && data && <HolidayDetails holidays={data} />}
+      {loading && !error && <div>Finding some places to spend all your money on !</div>}
+      {!loading && !error && data && <HolidayCard props={data} />}
       {!loading && error && <div>Une erreur est survenue</div>}
     </main>
   );

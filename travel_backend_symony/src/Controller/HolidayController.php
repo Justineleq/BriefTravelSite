@@ -16,10 +16,13 @@ class HolidayController extends AbstractController
 {
     #[Route('s', name: 'index', methods: ['GET'])]
     public function index(HolidayRepository $holidayRepository): Response
-    {
-        return $this->render('holiday/index.html.twig', [
-            'holidays' => $holidayRepository->findAll(),
+    {   
+         $holidays = $holidayRepository->findAll();
+
+        return $this->json($holidays, 200, [
+            "groups"=> "api_holiday_index"
         ]);
+
     }
 
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]

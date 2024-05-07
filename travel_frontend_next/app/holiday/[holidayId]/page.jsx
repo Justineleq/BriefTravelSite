@@ -1,10 +1,13 @@
 "use client";
 
-import Navbar from "@/src/components/Navbar/Navbar";
+
 import "./page.css";
 import { useEffect, useState } from "react";
+import HolidayDetails from "@/src/components/HolidayDetails/HolidayDetails";
+import Footer from "@/src/components/Footer/Footer";
 
-export default function HolidayDetails() {
+
+export default function HolidayPage() {
   // Initialisation des états pour gérer le chargement, les erreurs, et les données reçues.
   const [loading, setLoading] = useState(true); // État de chargement des données.
   const [error, setError] = useState(false); // État pour capturer une éventuelle erreur lors du fetch.
@@ -30,8 +33,21 @@ export default function HolidayDetails() {
       <Navbar />
       {/* Affichage conditionnel en fonction de l'état du chargement et des erreurs */}
       {loading && !error && <div>Oh man, you broke it! Just kidding....!</div>}
-      {/* {!loading && !error && data && <CharacterList characters={data} />} change this for ,y card */}
+      {!loading && !error && data && (<HolidayDetails
+          destination={data.destination}
+          voyagers={data.voyagers}
+          duration={data.duration}
+          startDate={data.startDate}
+          price={data.price}
+          rating={data.rating}
+          hotelDetails={data.hotelDetails}
+          locationDetails={data.locationDetails}
+          image={data.image}
+        />
+      )}
       {!loading && error && <div>Oh yeah you really broke it this time...</div>}
+      <Footer/>
     </main>
+
   );
 }

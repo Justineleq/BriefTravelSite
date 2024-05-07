@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: HolidayRepository::class)]
 class Holiday
@@ -16,30 +17,39 @@ class Holiday
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Groups('api_holiday_index')]
     #[ORM\Column(length: 255)]
     private ?string $Destination = null;
 
+    #[Groups('api_holiday_index')]
     #[ORM\Column]
     private ?int $voyagers = null;
 
+    #[Groups('api_holiday_index')]
     #[ORM\Column]
     private ?int $duration = null;
 
+    #[Groups('api_holiday_index')]
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $startDate = null;
 
+    #[Groups('api_holiday_index')]
     #[ORM\Column]
     private ?int $price = null;
 
+    #[Groups('api_holiday_index')]
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $rating = null;
 
+    #[Groups('api_holiday_index')]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $hotelDetails = null;
 
+    #[Groups('api_holiday_index')]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $locationDetails = null;
 
+    #[Groups('api_holiday_index')]
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 

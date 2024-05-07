@@ -1,0 +1,14 @@
+.navbar {
+    background-color: rgba(59, 176, 193, 26%);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    
+        .logo {
+            margin: 0;
+            font-size: 32px;
+            font-weight: bold;
+        }
+    }
