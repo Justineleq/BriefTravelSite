@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Navbar from "@/src/components/Navbar/Navbar";
 
 import HolidayCard from "@/src/components/Holidaycard/HolidayCard";
+import Footer from "@/src/components/Footer/Footer";
 
 
 export default function Holidays() {
@@ -35,7 +36,13 @@ export default function Holidays() {
       {/* Affichage conditionnel en fonction de l'état du chargement et des erreurs */}
       {loading && !error && <div>Finding some places to spend all your money on !</div>}
       {!loading && !error && data && <HolidayCard props={data} />}
-      {!loading && error && <div>Une erreur est survenue</div>}
+      {!loading && error && <div>There's been a slight problem...</div>}
+     <Footer/>
     </main>
+
+    
+
+
+       
   );
 }

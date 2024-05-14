@@ -1,14 +1,17 @@
+// import Image from "next/image";
 
-import HolidayImage from "../HolidayImage/HolidayImage";
+import HolidayCard from "../Holidaycard/HolidayCard";
+
+
 
 export default function HolidayDetails(props) {
+  console.log(props);
     return(
         <>
     <div className="Holiday-details">
-      {props.image && (
-        <HolidayImage/>
-      )}
+   <HolidayCard />
       <div className="holiday-information">
+        <p className="holiday-image">{props.image}</p>
         <p>{props.destination}</p>
         <p>{props.voyagers}x voyagers</p>
         <p>{props.duration} nights</p>
@@ -20,5 +23,6 @@ export default function HolidayDetails(props) {
       </div>
     </div>
         </>
+        
 );
 }

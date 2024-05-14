@@ -25,6 +25,7 @@ class HolidayController extends AbstractController
 
     }
 
+
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -45,7 +46,7 @@ class HolidayController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'show', methods: ['GET'])]
+    #[Route('/{destination}', name: 'show', methods: ['GET'])]
     public function show(Holiday $holiday): Response
     {
         return $this->render('holiday/show.html.twig', [

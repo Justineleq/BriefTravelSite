@@ -1,0 +1,13 @@
+.holiday{
+    margin: 10%;
+}
+
+.image-and-some-details{
+    display: flex;
+   
+}
+
+.details{
+    padding-left: 5%;
+}
+
