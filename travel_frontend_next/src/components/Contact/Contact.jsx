@@ -27,7 +27,7 @@ export default function ContactForm(props) {
               </div>
               <br></br>
               <div class="col-5">
-                <button type="submit" class="btn btn-primary">Send</button>
+                <button type="submit" class="btn btn-primary m-b 20">Send</button>
               </div>
           </form>
         </div>

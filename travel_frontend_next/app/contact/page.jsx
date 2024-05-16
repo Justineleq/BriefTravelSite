@@ -1,7 +1,6 @@
 "use client";
 
 import ContactForm from "@/src/components/Contact/Contact";
-import Footer from "@/src/components/Footer/Footer";
 import Navbar from "@/src/components/Navbar/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
@@ -56,7 +55,6 @@ function handleFormsubmit(event) {
     <main>
         <Navbar />
         <ContactForm formSubmit={handleFormsubmit} />
-        <Footer/>
     </main>
 
   )
