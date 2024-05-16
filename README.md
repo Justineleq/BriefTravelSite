@@ -25,4 +25,26 @@ As it plans to release a mobile application at a later date, part of the site ne
   ⭐React/Next -v 10.5.0
   🤓Justine -trying to be a geek
 
+  <H3>Roles</H3>
+
+  ROLE ADMIN =
+  
+  Email = sallysmith@gmail.com
+  
+  Password = 123456
+
+  <H3>API Routes</H3>
+
+  api/holidays - GETs you all the lovely holidays
+  
+  api/holiday/{destination} - GETs you all the details of the lovely holiday
+
+  api/contact/new - GETs the contact form you filled out and POSTed
+
+  <H4>Improvements</H4>
+
+  -create an api for the form that should be included on the the holiday details page 🤸‍♀️
+  -finish frontend ✨
+  -create a super admin 🦸‍♀️
+  
   
