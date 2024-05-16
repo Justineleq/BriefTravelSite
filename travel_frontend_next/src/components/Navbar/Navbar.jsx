@@ -26,7 +26,7 @@ export default function Navbar() {
             <Link className="nav-link" href="/holiday">Destinations</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" href="/Contact">Contact</Link>
+            <Link className="nav-link" href="/contact">Contact</Link>
           </li>
         </ul>
       </div>

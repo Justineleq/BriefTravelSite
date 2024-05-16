@@ -33,7 +33,7 @@ console.log(props);
             </div>
             </div>
             <h4>Rating</h4>
-            <p>{props.searchParams.rating}</p>
+            <p>{props.searchParams.rating} Stars</p>
             <h4>Hotel Details</h4>
             <p>{props.searchParams.hotelDetails}</p>
             <h4>Location Details</h4>

@@ -2,9 +2,7 @@
 
 import "./page.css";
 import { useEffect, useState } from "react";
-
 import Navbar from "@/src/components/Navbar/Navbar";
-
 import HolidayCard from "@/src/components/Holidaycard/HolidayCard";
 import Footer from "@/src/components/Footer/Footer";
 
