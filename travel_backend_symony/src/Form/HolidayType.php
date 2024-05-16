@@ -23,6 +23,7 @@ class HolidayType extends AbstractType
             ->add('hotelDetails')
             ->add('locationDetails')
             ->add('image')
+            ->add('category')
         ;
     }
 

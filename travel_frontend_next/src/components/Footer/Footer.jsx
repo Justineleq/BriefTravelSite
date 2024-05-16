@@ -7,10 +7,10 @@ export default function Footer() {
     <div className="footer">
               <img src="/images/holiday-logo.png"
                 className="footer-logo"
-                  alt="logo"
-                    height= "100%"
-                    width= "20%"
-                  ></img>
+                alt="logo"
+                height= "100%"
+                width= "20%"
+              ></img>
     </div>
   );
 }

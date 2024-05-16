@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
@@ -14,18 +15,23 @@ class Contact
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Groups('api_contact_new')]
     #[ORM\Column(length: 255)]
     private ?string $Name = null;
 
+    #[Groups('api_contact_new')]
     #[ORM\Column(length: 255)]
     private ?string $Surname = null;
 
+    #[Groups('api_contact_new')]
     #[ORM\Column(length: 255)]
     private ?string $Email = null;
 
+    #[Groups('api_contact_new')]
     #[ORM\Column(length: 255)]
     private ?string $Subject = null;
 
+    #[Groups('api_contact_new')]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $Message = null;
 

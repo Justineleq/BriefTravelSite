@@ -13,8 +13,8 @@ export default function Navbar() {
             <Image className="rounded-pill mx-2 d-inline-block align-text-top"
                   src="/images/holiday-logo.png"
                   alt="logo"
-                  height= {50}
-                  width= {50}
+                  height= {80}
+                  width= {80}
               ></Image>
           </Link>
       <div id="navbarNav">

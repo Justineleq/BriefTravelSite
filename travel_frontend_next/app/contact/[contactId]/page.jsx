@@ -25,7 +25,7 @@ function handleFormsubmit(event) {
     const email = (event.target[2].value);
     const subject = (event.target[3].value);
     const message = (event.target[4].value);
-
+    
     try {
         fetch("http://127.0.0.1:8000/api/contact/new",
         {
@@ -34,20 +34,22 @@ function handleFormsubmit(event) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            Name: name,
-            Surname: surname,
-            Email: email,
-            Subject: subject,
-            Message: message,
+            name: name,
+            surname: surname,
+            email: email,
+            subject: subject,
+            message: message,
         }),
         }
         )
           .then((response) => response.json()) // Transformation de la réponse en JSON.
           .then((data) => {
-  
+            setLoading(false); // Arrêt de l'indicateur de chargement après la réception des données.
+            setData(); // Enregistrement des données reçues dans l'état 'data'.
           });
       } catch (error) {
-
+        setError(true); // Enregistrement de l'erreur dans l'état 'error'.
+        setLoading(false); // Arrêt de l'indicateur de chargement en cas d'erreur.
       }
 
 }

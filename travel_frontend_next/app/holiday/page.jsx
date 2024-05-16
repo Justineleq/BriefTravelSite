@@ -16,7 +16,7 @@ export default function Holidays() {
   useEffect(() => {
     // Déclenchement de la récupération des données de personnages au montage du composant.
     try {
-      fetch("http://127.0.0.1:8000/api/holidays")
+      fetch("http://127.0.0.1:8000/api/holidays" )
         .then((response) => response.json()) // Transformation de la réponse en JSON.
         .then((data) => {
           setLoading(false); // Arrêt de l'indicateur de chargement après la réception des données.
