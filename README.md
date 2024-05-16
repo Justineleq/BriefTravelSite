@@ -44,7 +44,9 @@ As it plans to release a mobile application at a later date, part of the site ne
   <H4>Improvements</H4>
 
   -create an api for the form that should be included on the the holiday details page 🤸‍♀️
+  
   -finish frontend ✨
+  
   -create a super admin 🦸‍♀️
   
   
