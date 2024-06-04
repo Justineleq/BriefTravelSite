@@ -56,19 +56,21 @@ class Holiday
     /**
      * @var Collection<int, category>
      */
-    #[ORM\ManyToMany(targetEntity: category::class, inversedBy: 'holidays')]
+    #[Groups('api_holiday_index')]
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'holidays')]
     private Collection $category;
 
     /**
      * @var Collection<int, User>
      */
-    #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'Holiday')]
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'holiday')]
     private Collection $users;
 
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->users = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -220,7 +222,7 @@ class Holiday
     {
         if (!$this->users->contains($user)) {
             $this->users->add($user);
-            $user->setHoliday($this);
+            $user->addHoliday($this);
         }
 
         return $this;
@@ -229,12 +231,10 @@ class Holiday
     public function removeUser(User $user): static
     {
         if ($this->users->removeElement($user)) {
-            // set the owning side to null (unless already changed)
-            if ($user->getHoliday() === $this) {
-                $user->setHoliday(null);
-            }
+            $user->removeHoliday($this);
         }
 
         return $this;
     }
+
 }

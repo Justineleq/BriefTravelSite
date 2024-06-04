@@ -3,6 +3,7 @@
 namespace App\Controller\api;
 
 use App\Entity\Contact;
+use App\Repository\ContactRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,18 +12,20 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+#[Route('/api/contact', name: 'app_api_')]
 class ContactController extends AbstractController
 {
     
-    #[Route('/api/contact', name: 'app_api_contact')]
-    public function index(): Response
+    #[Route('s', name: 'index')]
+    public function index(ContactRepository $contactRepository): Response
     {
-        return $this->render('api/contact/index.html.twig', [
-            'controller_name' => 'ContactController',
+        $contacts = $contactRepository->findAll();
+
+        return $this->json($contacts, context: [''
         ]);
     }
 
-    #[Route('/api/contact/new', name: 'app_api_new', methods:['POST', 'GET'])]
+    #[Route('/api/contact/new', name: 'new', methods:['POST', 'GET'])]
     public function new(Request $request, EntityManagerInterface $em, SerializerInterface $serializer, ValidatorInterface $validator): Response
     {
         $contact = $serializer->deserialize($request->getContent(), Contact::class, 'json', context: ['groups' => 'api_contact_new']);

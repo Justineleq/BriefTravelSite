@@ -15,17 +15,18 @@ class Contact
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Groups('api_contact_new')]
+    #[Groups('api_contact_new, api_contact_index')]
     #[ORM\Column(length: 255)]
     private ?string $Name = null;
 
-    #[Groups('api_contact_new')]
+    #[Groups('api_contact_new, api_contact_index')]
     #[ORM\Column(length: 255)]
     private ?string $Surname = null;
 
-    #[Groups('api_contact_new')]
+    #[Groups('api_contact_new, api_contact_index')]
     #[ORM\Column(length: 255)]
     private ?string $Email = null;
+
 
     #[Groups('api_contact_new')]
     #[ORM\Column(length: 255)]

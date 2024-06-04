@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -37,8 +39,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    #[ORM\ManyToOne(inversedBy: 'users')]
-    private ?Holiday $Holiday = null;
+    /**
+     * @var Collection<int, Holiday>
+     */
+    #[ORM\ManyToMany(targetEntity: Holiday::class, inversedBy: 'users')]
+    private Collection $holiday;
+
+    public function __construct()
+    {
+        $this->holiday = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -127,15 +137,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getHoliday(): ?Holiday
+    /**
+     * @return Collection<int, Holiday>
+     */
+    public function getHoliday(): Collection
     {
-        return $this->Holiday;
+        return $this->holiday;
     }
 
-    public function setHoliday(?Holiday $Holiday): static
+    public function addHoliday(Holiday $holiday): static
     {
-        $this->Holiday = $Holiday;
+        if (!$this->holiday->contains($holiday)) {
+            $this->holiday->add($holiday);
+        }
 
         return $this;
     }
+
+    public function removeHoliday(Holiday $holiday): static
+    {
+        $this->holiday->removeElement($holiday);
+
+        return $this;
+    }
+
 }
