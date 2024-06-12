@@ -2,7 +2,7 @@ import Link from "next/link";
 import "./HolidayCard.css";
 
 export default function HolidayCard(props) {
-  // console.log(props);
+  console.log(props);
   return(
     <div className="holiday-card">
         {props.props.length > 0  && props.props.map((holiday) => (
@@ -19,6 +19,7 @@ export default function HolidayCard(props) {
                 hotelDetails:  holiday.hotelDetails,
                 locationDetails: holiday.locationDetails,
                 image: holiday.image
+                // /look for category
               }
           }}
 

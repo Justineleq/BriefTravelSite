@@ -56,7 +56,7 @@ class Holiday
     /**
      * @var Collection<int, category>
      */
-    #[Groups('api_holiday_index')]
+    #[Groups('api_holiday_index', 'api_holiday_show')]
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'holidays')]
     private Collection $category;
 

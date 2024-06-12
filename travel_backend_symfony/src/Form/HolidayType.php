@@ -25,7 +25,7 @@ class HolidayType extends AbstractType
             ->add('hotelDetails')
             ->add('locationDetails')
             ->add('image')
-            ->add('catergory', EntityType::class, [
+            ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
                 'multiple' => true,
