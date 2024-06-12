@@ -9,7 +9,6 @@ import Footer from "@/src/components/Footer/Footer";
 
 import { useEffect, useState } from "react";
 
-
 export default function Holidays() {
   
   const [loading, setLoading] = useState(true); 
@@ -34,6 +33,7 @@ export default function Holidays() {
   return (
     <main>
       <Navbar />
+
     
       {loading && !error && <div>Finding some places to spend all your money on !</div>}
       {!loading && !error && data && <HolidayCard props={data} />}

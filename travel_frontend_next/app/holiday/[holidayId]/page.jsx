@@ -6,6 +6,17 @@ import Navbar from "@/src/components/Navbar/Navbar";
 
 export default function HolidayPage(props) {
 console.log(props);
+
+let startDate = new Date(props.searchParams.startDate);
+
+const dateFormat =  {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+};
+
+startDate = startDate.toLocaleDateString('en-GB', dateFormat)
+
   return (
     <main>
       <Navbar />
@@ -22,10 +33,11 @@ console.log(props);
                   />
                   <div className="details">
             <p><strong>{props.searchParams.Destination}</strong></p>
-            <p>{props.searchParams.voyagers}x voyagers</p>
-            <p>{props.searchParams.duration}x nights</p><br></br>
-            <p>Price: {props.searchParams.price} Euros pp</p>
-            <p>{props.searchParams.startDate}</p>
+            <p>{props.searchParams.voyagers}x Voyagers</p>
+            <p>{props.searchParams.duration}x Nights</p><br></br>
+            <p><strong>Price: </strong>{props.searchParams.price} Euros pp</p>
+
+            <p><strong>Start Date: </strong>{startDate}</p>
             </div>
             </div>
             <h4>Rating</h4>

@@ -20,6 +20,7 @@ export default function HolidayDetails(props) {
         <p>{props.rating} Stars</p>
         <p>{props.hotelDetails}</p>
         <p>{props.locationDetails}</p>
+        <p>{props.category}</p>
       </div>
     </div>
         </>
