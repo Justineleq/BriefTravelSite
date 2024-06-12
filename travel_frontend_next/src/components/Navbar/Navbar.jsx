@@ -7,30 +7,30 @@ export default function Navbar() {
 
   return (
  
-    <nav className="navbar navbar-expand-lg px-3">
-    <div className="d-flex justify-content-between w-100">
-        <Link className="navbar navbar-brand fs-2 fw-normal" href="/">
+    <nav className="navbar navbar-expand-lg ">
+    <div className="container-fluid">
+        <Link className="d-flex me-auto p-2" href="/">
             <Image className="rounded-pill mx-2 d-inline-block align-text-top"
                   src="/images/holiday-logo.png"
                   alt="logo"
-                  height= {80}
-                  width= {80}
+                  height= {100}
+                  width= {100}
+                  margin-right='auto'
               ></Image>
           </Link>
-      <div id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul className="navbar-nav me-2 mb-2 mb-lg-0">
           <li className="nav-item">
-            <Link className="nav-link" href="/">Home</Link>
+            <Link className="nav-link fs-4" href="/">Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" href="/holiday">Destinations</Link>
+            <Link className="nav-link fs-4" href="/holiday">Destinations</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" href="/contact">Contact</Link>
+            <Link className="nav-link fs-4" href="/contact">Contact</Link>
           </li>
         </ul>
       </div>
-      </div>
+
   </nav>
   )
 

@@ -1,10 +1,13 @@
 "use client";
 
 import "./page.css";
-import { useEffect, useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Navbar from "@/src/components/Navbar/Navbar";
 import HolidayCard from "@/src/components/Holidaycard/HolidayCard";
 import Footer from "@/src/components/Footer/Footer";
+
+import { useEffect, useState } from "react";
 
 
 export default function Holidays() {

@@ -1,36 +1,34 @@
-export default function ContactForm(props) {
-   
-    return(
-      <div className="contact-form position-absolute">
-        <form onSubmit={props.formSubmit} class="flex-column mb-3 d-flex align-items-center w-auto p-3">
-          <h1>Here to help</h1>
-              <div class="col-md-6">
-                <label for="inputName4" class="form-label">Name:</label>
-                <input type="name" class="form-control" id="inputName4"></input>
-              </div>
-              <div class="col-md-6">
-                <label for="inputSurname4" class="form-label">Surname:</label>
-                <input type="surname" class="form-control" id="inputSurname4"></input>
-              </div>
-              <div class="col-7">
-              <label for="inputEmail4" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="inputEmail4"></input>
-              </div>
-              <div class="col-7">
-                <label for="inputSubject2" class="form-label">Subject:</label>
-                <input type="text" class="form-control" id="inputSubject2" placeholder="Subject"></input>
-              </div>
-              <br></br>
-              <div class="form-floating">
-                <textarea class="form-control" placeholder="Write your messag here" id="floatingTextarea"></textarea>
-                <label for="floatingTextarea">Message:</label>
-              </div>
-              <br></br>
-              <div class="col-5">
-                <button type="submit" class="btn btn-primary m-b 20">Send</button>
-              </div>
-          </form>
-        </div>
-    )
-}
+import "./Contact.css"
 
+export default function ContactForm(props) {
+  return (
+    <div className="contact-form d-flex justify-content-center align-items-center vh-60">
+      <form onSubmit={props.formSubmit} className="d-flex flex-column align-items-center w-50 p-3 border" id="contact-form">
+        <h1>Here to help</h1>
+        <div className="form-group col-12 mb-7 d-flex flex-column align-items-center">
+          <label for="inputName4" className="form-label text-center w-100">Name:</label>
+          <input type="text" className="form-control w-100" id="inputName4" placeholder="Enter your first name here"/>
+        </div>
+        <div className="form-group col-12 mb-3 d-flex flex-column align-items-center">
+          <label for="inputSurname4" className="form-label text-center w-100">Surname:</label>
+          <input type="text" className="form-control w-100" id="inputSurname4" placeholder="Then your last name"/>
+        </div>
+        <div className="form-group col-12 mb-3 d-flex flex-column align-items-center">
+          <label for="inputEmail4" className="form-label text-center w-100">Email:</label>
+          <input type="email" className="form-control w-100" id="inputEmail4" placeholder="Correct email with a little @ please"/>
+        </div>
+        <div className="form-group col-12 mb-3 d-flex flex-column align-items-center">
+          <label for="inputSubject2" className="form-label text-center w-100">Subject:</label>
+          <input type="text" className="form-control w-100" id="inputSubject2" placeholder="Subject" />
+        </div>
+        <div className="form-group col-12 mb-3 d-flex flex-column align-items-center">
+          <label for="floatingTextarea" className="form-label text-center w-100">Message:</label>
+          <textarea className="form-control w-100" placeholder="Write your message here" id="floatingTextarea"></textarea>
+        </div>
+        <div className="form-group col-12 mb-3 d-flex flex-column align-items-center">
+          <button type="submit" className="btn btn-primary">Send</button>
+        </div>
+      </form>
+    </div>
+  );
+}

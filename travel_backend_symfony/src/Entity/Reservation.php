@@ -27,7 +27,7 @@ class Reservation
     private ?string $Message = null;
 
     #[ORM\ManyToOne(inversedBy: 'reservations')]
-    private ?status $status = null;
+    private ?Status $status = null;
 
     public function getId(): ?int
     {
@@ -82,12 +82,12 @@ class Reservation
         return $this;
     }
 
-    public function getStatus(): ?status
+    public function getStatus(): ?Status
     {
         return $this->status;
     }
 
-    public function setStatus(?status $status): static
+    public function setStatus(?Status $status): static
     {
         $this->status = $status;
 

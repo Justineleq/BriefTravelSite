@@ -1,4 +1,4 @@
-import HolidayCard from "../Holidaycard/HolidayCard";
+
 
 export default function HolidayList(props) {
     console.log(props.holidays);
@@ -12,6 +12,11 @@ export default function HolidayList(props) {
                     <p>{holiday.duration} nights</p>
                     <p>{holiday.startDate}</p>
                     <p>{holiday.price}Euros pp</p>
+                    <img
+                        className="star-icon"
+                        src='/images/icon8-star-50.png'
+                        alt={"star-logo"}
+                    />
                     <p>{holiday.rating} Stars</p>
                     <p>{holiday.hotelDetails}</p>
                     <p>{holiday.locationDetails}</p>

@@ -1,21 +1,17 @@
 "use client";
 
-
 import "./page.css";
 import Footer from "@/src/components/Footer/Footer";
 import Navbar from "@/src/components/Navbar/Navbar";
 
-
 export default function HolidayPage(props) {
-
-
 console.log(props);
   return (
     <main>
       <Navbar />
-      {/* <HolidayDetails /> */}
+      {/* <HolidayDetails />/ */ } 
+      {/* I wanted to add all my components, but I don't have a clear enough understanding */}
       <div className="holiday">
-        
         <div className="image-and-some-details">
             <img
               className="holiday-card-image"

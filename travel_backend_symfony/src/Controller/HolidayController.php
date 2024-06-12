@@ -18,13 +18,10 @@ class HolidayController extends AbstractController
     #[IsGranted('ROLE_ADMIN')]
     #[Route('s', name: 'index', methods: ['GET'])]
     public function index(HolidayRepository $holidayRepository): Response
-    {   
-         $holidays = $holidayRepository->findAll();
-
-        return $this->json($holidays, 200, [
-            "groups"=> "api_holiday_index"
+    {
+        return $this->render('holiday/index.html.twig', [
+            'holidays' => $holidayRepository->findAll(),
         ]);
-
     }
 
     #[IsGranted('ROLE_ADMIN')]

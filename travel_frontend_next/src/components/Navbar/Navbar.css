@@ -1,15 +1,16 @@
 nav {
     background-color: rgba(59, 176, 193, 26%);
-
-}
-
-.navbar{
-    padding: 1%;
 }
 
 .link {
     color: black;
     text-decoration: none;
-    margin-right: 3%;
+    margin-left: auto;
 
 }
+
+li{
+    margin-right: 5rem;
+}
+
+

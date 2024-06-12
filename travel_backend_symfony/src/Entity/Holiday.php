@@ -17,39 +17,39 @@ class Holiday
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Groups('api_holiday_index')]
+    #[Groups('api_holiday_index', 'api_holiday_show')]
     #[ORM\Column(length: 255)]
     private ?string $Destination = null;
 
-    #[Groups('api_holiday_index')]
+    #[Groups('api_holiday_index', 'api_holiday_show')]
     #[ORM\Column]
     private ?int $voyagers = null;
 
-    #[Groups('api_holiday_index')]
+    #[Groups('api_holiday_index', 'api_holiday_show')]
     #[ORM\Column]
     private ?int $duration = null;
 
-    #[Groups('api_holiday_index')]
+    #[Groups('api_holiday_index', 'api_holiday_show')]
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $startDate = null;
 
-    #[Groups('api_holiday_index')]
+    #[Groups('api_holiday_index', 'api_holiday_show')]
     #[ORM\Column]
     private ?int $price = null;
 
-    #[Groups('api_holiday_index')]
+    #[Groups('api_holiday_index', 'api_holiday_show')]
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $rating = null;
 
-    #[Groups('api_holiday_index')]
+    #[Groups('api_holiday_index', 'api_holiday_show')]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $hotelDetails = null;
 
-    #[Groups('api_holiday_index')]
+    #[Groups('api_holiday_index', 'api_holiday_show')]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $locationDetails = null;
 
-    #[Groups('api_holiday_index')]
+    #[Groups('api_holiday_index', 'api_holiday_show')]
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
@@ -194,7 +194,7 @@ class Holiday
         return $this->category;
     }
 
-    public function addCategory(category $category): static
+    public function addCategory(Category $category): static
     {
         if (!$this->category->contains($category)) {
             $this->category->add($category);
@@ -203,7 +203,7 @@ class Holiday
         return $this;
     }
 
-    public function removeCategory(category $category): static
+    public function removeCategory(Category $category): static
     {
         $this->category->removeElement($category);
 

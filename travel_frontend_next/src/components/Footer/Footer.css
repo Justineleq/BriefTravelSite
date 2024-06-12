@@ -1,10 +1,7 @@
-.footer {
+#footer {
     background-color: rgba(248, 199, 126);
-    padding: 10px 20px;
-    position: fixed;
     width: 100%;
-    bottom: 0%;
-    margin-top: 2%;
+
 }
 
 .footer-logo {

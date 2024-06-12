@@ -2,11 +2,11 @@ import Link from "next/link";
 import "./HolidayCard.css";
 
 export default function HolidayCard(props) {
-  console.log("here",props);
+  // console.log(props);
   return(
     <div className="holiday-card">
-        {props.props.length > 0  && props.props.map((holiday, index) => (
-          <Link className="link"
+        {props.props.length > 0  && props.props.map((holiday) => (
+          <Link className="link-holiday-card"
           href={{
               pathname: `/holiday/${holiday.Destination}`,
               query: {
@@ -28,8 +28,8 @@ export default function HolidayCard(props) {
                   className="holiday-card-image"
                   src={'http://localhost:8000/images/' + holiday.image} 
                   width={250}
-                  height={250}
-                  alt={"Image of " + holiday.name}
+                  height={300}
+                  alt={"Image of " + holiday.image.name}
                  
                 />
             

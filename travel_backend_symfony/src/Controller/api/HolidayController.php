@@ -25,7 +25,7 @@ class HolidayController extends AbstractController
     public function show(EntityManagerInterface $entityManager, $id): JsonResponse
     {
        $repo = $entityManager->getRepository(Holiday::class);
-       $holiday = $repo->findOneBy(['destination' => $id]);
+       $holiday = $repo->findOneBy(['id' => $id]);
        return $this->json($holiday, context: ['groups' => ['api_holiday_index', 'api_holiday_show']]);
     }
 
