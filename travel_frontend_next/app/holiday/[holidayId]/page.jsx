@@ -1,15 +1,19 @@
 "use client";
 
 import "./page.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Footer from "@/src/components/Footer/Footer";
 import Navbar from "@/src/components/Navbar/Navbar";
+// import { useState } from "react";
 
 export default function HolidayPage(props) {
 console.log(props);
 
 let startDate = new Date(props.searchParams.startDate);
 
-const dateFormat =  {
+const dateFormat =  
+{
   year: 'numeric',
   month: 'long',
   day: 'numeric'
@@ -17,11 +21,53 @@ const dateFormat =  {
 
 startDate = startDate.toLocaleDateString('en-GB', dateFormat)
 
+// const [data, setData] = useState({
+//   name: '',
+//   surname: '',
+//   email: '',
+//   message: ''
+// });
+// console.log(data, 'data reserv');
+
+// function handleReservationFormSubmit(event) 
+// {
+  
+//   event.preventDefault();
+//   const name = (event.target[0].value);
+//   const surname = (event.target[1].value);
+//   const email = (event.target[2].value);
+//   const message = (event.target[3].value);
+
+//   console.log(event, 'reservation');
+//   try {
+//       fetch("http://127.0.0.1:8000/api/reservation/new",
+//       {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//           Name: name,
+//           Surname: surname,
+//           Email: email,
+//           Message: message,
+//       }),
+//       }
+//       )
+//         .then((response) => response.json()) 
+//         .then((data) => {
+
+//         });
+//     } catch (error) {
+
+//     }
+
+// }
   return (
     <main>
       <Navbar />
       {/* <HolidayDetails />/ */ } 
-      {/* I wanted to add all my components, but I don't have a clear enough understanding */}
+      {/* I wanted to add all my components, but I don't have a clear enough understanding why this one doesn't work */}
       <div className="holiday">
         <div className="image-and-some-details">
             <img
@@ -46,10 +92,11 @@ startDate = startDate.toLocaleDateString('en-GB', dateFormat)
             <p>{props.searchParams.hotelDetails}</p>
             <h4>Location Details</h4>
             <p>{props.searchParams.locationDetails}</p>
-</div>
+
+
 
       <Footer/>
-      
+      </div>
     </main>
 
   );

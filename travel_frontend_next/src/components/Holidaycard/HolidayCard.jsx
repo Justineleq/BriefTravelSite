@@ -5,8 +5,8 @@ export default function HolidayCard(props) {
   // console.log(props);
   return(
     <div className="holiday-card" >
-        {props.props.length > 0  && props.props.map((holiday, index) => (
-          <Link className="link-holiday-card" key={index}
+        {props.props.length > 0  && props.props.map((holiday) => (
+          <Link className="link-holiday-card" key={holiday.id}
           href={{
               pathname: `/holiday/${holiday.Destination}`,
               query: {

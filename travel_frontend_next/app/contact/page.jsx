@@ -18,7 +18,7 @@ export default function ContactPage() {
 
   ); // Stockage des données reçues du fetch.
 
-function handleFormsubmit(event) {
+function handleContactFormSubmit(event) {
     event.preventDefault();
     const name = (event.target[0].value);
     const surname = (event.target[1].value);
@@ -42,7 +42,7 @@ function handleFormsubmit(event) {
         }),
         }
         )
-          .then((response) => response.json()) // Transformation de la réponse en JSON.
+          .then((response) => response.json()) 
           .then((data) => {
   
           });
@@ -55,7 +55,7 @@ function handleFormsubmit(event) {
   return (
     <main>
         <Navbar />
-        <ContactForm formSubmit={handleFormsubmit} />
+        <ContactForm formSubmit={handleContactFormSubmit} />
         <Footer />
     </main>
 

@@ -10,15 +10,16 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/api/holiday', name: 'app_api_')]
+#[Route('/api/holiday', name: 'app_api_holiday_')]
 class HolidayController extends AbstractController
 {
     #[Route('s', name: 'index')]
     public function index(HolidayRepository $holidayRepository): Response
     {
+        error_log("index route accessed");
         $holidays = $holidayRepository->findAll();
 
-        return $this->json($holidays, context: ['groups' => 'api_holiday_index']);
+        return $this->json(data: $holidays, context: ['groups' => 'api_holiday_index']);
     }
 
     #[Route('/{id}', name: 'show')]

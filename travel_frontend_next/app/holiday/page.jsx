@@ -10,11 +10,13 @@ import Footer from "@/src/components/Footer/Footer";
 import { useEffect, useState } from "react";
 
 export default function Holidays() {
+
+  
   
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(false); 
   const [data, setData] = useState(null); 
-
+ 
   useEffect(() => {
    
     try {
@@ -22,7 +24,7 @@ export default function Holidays() {
         .then((response) => response.json()) 
         .then((data) => {
           setLoading(false); 
-          setData(data); 
+          setData(data);
         });
     } catch (error) {
       setError(true); 

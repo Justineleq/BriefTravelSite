@@ -1,14 +1,18 @@
 import Link from "next/link";
-import "./MiniCard.css";
-
-export default function MiniCard(props) {
-  console.log(props, 'minicard comp');
+import "./MiniCardNature.css";
 
 
+
+export default function MiniCardNature(props) {
+
+  const natureHolidays = props.props.filter(holiday => holiday.category === 'Nature');
+
+
+  console.log(props, 'minicardnature comp');
   return(
-    <div className="holiday-card-mini">
+    <div className="holiday-card-mini-nature">
         {props.props.length > 0  && props.props.map((holiday) => (
-          <Link className="mini-link"
+          <Link className="mini-link-nature"
           href={{
               pathname: `/holiday/${holiday.Destination}`,
           }}
@@ -20,8 +24,10 @@ export default function MiniCard(props) {
                   height={180}
                   gap={10}
                   alt={"Image of " + holiday.image.name}
-                 />     
-  
+                 />         
+                         {props.category && props.category.map((category, index) => (
+                                <p key={index}>{category.name}</p>
+        ))}
             </Link>
 
         ))}

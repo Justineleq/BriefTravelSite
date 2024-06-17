@@ -7,11 +7,16 @@ import Navbar from "@/src/components/Navbar/Navbar";
 import Footer from "@/src/components/Footer/Footer";
 import MiniCard from '@/src/components/MiniCard/MiniCard';
 import HeroBanner from '@/src/components/Herobanner/HeroBanner';
+import MiniCardNature from "@/src/components/MiniCardNature/MiniCardNature";
 
 import { useEffect, useState } from 'react';
 
+
+
 export default function Home(props) {
-console.log(props);
+
+// console.log(props);
+
 const [loading, setLoading] = useState(true); 
 const [error, setError] = useState(false); 
 const [data, setData] = useState(null); 
@@ -36,14 +41,18 @@ useEffect(() => {
     <main>
       <Navbar />
       <HeroBanner />
+      <p className="fs-4 fw-normal m-2">Yeyyy let's go there...</p>
 
       {loading && !error && <div>Finding some places to spend all your money on !</div>}
       {!loading && !error && data && <MiniCard props={data} />}
       {!loading && error && <div>There's been a slight problem...</div>}
 
-      <div className=''>
-
-      </div>
+      <p className="fs-4 fw-normal m-2">Love a bit of natural stuff...</p>
+{/* 
+      {loading && !error && <div>Finding some places to spend all your money on !</div>}
+      {!loading && !error && data && 
+      <MiniCardNature props= {data}/>}
+      {!loading && error && <div>There's been a slight problem...</div>} */}
 
       <Footer />
     </main>

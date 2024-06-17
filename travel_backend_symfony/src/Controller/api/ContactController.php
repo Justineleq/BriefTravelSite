@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-#[Route('/api/contact', name: 'app_api_')]
+#[Route('/api/contact', name: 'app_api_contact_')]
 class ContactController extends AbstractController
 {
     
@@ -21,12 +21,16 @@ class ContactController extends AbstractController
     {
         $contacts = $contactRepository->findAll();
 
-        return $this->json($contacts, context: [''
-        ]);
+        return $this->json(data: $contacts, context: ['api_contact_index']);
     }
 
-    #[Route('/api/contact/new', name: 'new', methods:['POST', 'GET'])]
-    public function new(Request $request, EntityManagerInterface $em, SerializerInterface $serializer, ValidatorInterface $validator): Response
+    #[Route('/new', name: 'new', methods:['POST', 'GET'])]
+    public function new(
+        Request $request, 
+        EntityManagerInterface $em, 
+        SerializerInterface $serializer, 
+        ValidatorInterface $validator
+        ): Response
     {
         $contact = $serializer->deserialize($request->getContent(), Contact::class, 'json', context: ['groups' => 'api_contact_new']);
 

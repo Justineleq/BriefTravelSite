@@ -1,5 +1,10 @@
 .text-hero-banner {
     position: absolute;
     margin-top: 25%;
+    margin-left: 2rem;
     opacity: 0.90;
+}
+
+#hero-banner {
+    height: 20%!important;
 }

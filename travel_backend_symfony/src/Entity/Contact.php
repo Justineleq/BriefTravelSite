@@ -28,14 +28,15 @@ class Contact
     private ?string $Email = null;
 
 
-    #[Groups('api_contact_new')]
+    #[Groups('api_contact_new, api_contact_index')]
     #[ORM\Column(length: 255)]
     private ?string $Subject = null;
 
-    #[Groups('api_contact_new')]
+    #[Groups('api_contact_new, api_contact_index')]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $Message = null;
 
+    #[Groups('api_contact_new, api_contact_index')]
     #[ORM\ManyToOne(inversedBy: 'contacts')]
     private ?status $status = null;
 

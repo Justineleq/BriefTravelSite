@@ -18,7 +18,7 @@ export default function Navbar() {
                   margin-right='auto'
               ></Image>
           </Link>
-      <ul className="navbar-nav me-2 mb-2 mb-lg-0">
+      <ul className="navbar-nav me-2 d-flex align-items-end">
           <li className="nav-item">
             <Link className="nav-link fs-4" href="/">Home</Link>
           </li>

@@ -1,6 +1,4 @@
-// import Image from "next/image";
 
-import HolidayCard from "../Holidaycard/HolidayCard";
 
 
 
@@ -9,7 +7,6 @@ export default function HolidayDetails(props) {
     return(
         <>
     <div className="Holiday-details">
-   <HolidayCard />
       <div className="holiday-information">
         <p className="holiday-image">{props.image}</p>
         <p>{props.destination}</p>
