@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Footer from "@/src/components/Footer/Footer";
 import Navbar from "@/src/components/Navbar/Navbar";
-// import { useState } from "react";
+import ReservationForm from "@/src/components/ReservationForm/ReservationForm";
+
 
 export default function HolidayPage(props) {
 console.log(props);
@@ -21,48 +22,6 @@ const dateFormat =
 
 startDate = startDate.toLocaleDateString('en-GB', dateFormat)
 
-// const [data, setData] = useState({
-//   name: '',
-//   surname: '',
-//   email: '',
-//   message: ''
-// });
-// console.log(data, 'data reserv');
-
-// function handleReservationFormSubmit(event) 
-// {
-  
-//   event.preventDefault();
-//   const name = (event.target[0].value);
-//   const surname = (event.target[1].value);
-//   const email = (event.target[2].value);
-//   const message = (event.target[3].value);
-
-//   console.log(event, 'reservation');
-//   try {
-//       fetch("http://127.0.0.1:8000/api/reservation/new",
-//       {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//           Name: name,
-//           Surname: surname,
-//           Email: email,
-//           Message: message,
-//       }),
-//       }
-//       )
-//         .then((response) => response.json()) 
-//         .then((data) => {
-
-//         });
-//     } catch (error) {
-
-//     }
-
-// }
   return (
     <main>
       <Navbar />
@@ -73,8 +32,8 @@ startDate = startDate.toLocaleDateString('en-GB', dateFormat)
             <img
               className="holiday-card-image"
               src={'http://localhost:8000/images/' + props.searchParams.image} 
-              width={250}
-              height={250}
+              width={180}
+              height={200}
               alt={"Image of " + props.searchParams.name}
                   />
                   <div className="details">
@@ -92,11 +51,11 @@ startDate = startDate.toLocaleDateString('en-GB', dateFormat)
             <p>{props.searchParams.hotelDetails}</p>
             <h4>Location Details</h4>
             <p>{props.searchParams.locationDetails}</p>
-
-
-
-      <Footer/>
       </div>
+
+      <ReservationForm props={props} />
+      <Footer/>
+      
     </main>
 
   );

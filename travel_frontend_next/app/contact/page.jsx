@@ -17,8 +17,11 @@ export default function ContactPage() {
   }
 
   ); // Stockage des données reçues du fetch.
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(false); 
 
-function handleContactFormSubmit(event) {
+
+function handleFormsubmit(event) {
     event.preventDefault();
     const name = (event.target[0].value);
     const surname = (event.target[1].value);
@@ -34,20 +37,22 @@ function handleContactFormSubmit(event) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            Name: name,
-            Surname: surname,
-            Email: email,
-            Subject: subject,
-            Message: message,
+            name: name,
+            surname: surname,
+            email: email,
+            subject: subject,
+            message: message,
         }),
         }
         )
-          .then((response) => response.json()) 
+          .then((response) => response.json()) // Transformation de la réponse en JSON.
           .then((data) => {
-  
+            setLoading(false); // Arrêt de l'indicateur de chargement après la réception des données.
+            setData(); // Enregistrement des données reçues dans l'état 'data'.
           });
       } catch (error) {
-
+        setError(true); // Enregistrement de l'erreur dans l'état 'error'.
+        setLoading(false); // Arrêt de l'indicateur de chargement en cas d'erreur.
       }
 
 }
@@ -55,8 +60,8 @@ function handleContactFormSubmit(event) {
   return (
     <main>
         <Navbar />
-        <ContactForm formSubmit={handleContactFormSubmit} />
-        <Footer />
+        <ContactForm formSubmit={handleFormsubmit} />
+        <Footer/>
     </main>
 
   )

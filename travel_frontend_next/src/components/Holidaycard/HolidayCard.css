@@ -1,6 +1,7 @@
 .holiday-card {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     display: flex;
     gap: 2rem;
     margin: 2rem;

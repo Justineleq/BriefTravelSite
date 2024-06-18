@@ -3,6 +3,7 @@
 namespace App\Controller\api;
 
 use App\Entity\Holiday;
+use App\Repository\CategoryRepository;
 use App\Repository\HolidayRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,19 +15,25 @@ use Symfony\Component\Routing\Attribute\Route;
 class HolidayController extends AbstractController
 {
     #[Route('s', name: 'index')]
-    public function index(HolidayRepository $holidayRepository): Response
-    {
-        error_log("index route accessed");
+    public function index(
+        HolidayRepository $holidayRepository,
+        ): Response
+    {  
         $holidays = $holidayRepository->findAll();
 
         return $this->json(data: $holidays, context: ['groups' => 'api_holiday_index']);
     }
 
     #[Route('/{id}', name: 'show')]
-    public function show(EntityManagerInterface $entityManager, $id): JsonResponse
+    public function show(
+        EntityManagerInterface $entityManager, 
+        $id
+        ): JsonResponse
     {
        $repo = $entityManager->getRepository(Holiday::class);
+
        $holiday = $repo->findOneBy(['id' => $id]);
+
        return $this->json($holiday, context: ['groups' => ['api_holiday_index', 'api_holiday_show']]);
     }
 

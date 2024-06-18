@@ -48,11 +48,11 @@ useEffect(() => {
       {!loading && error && <div>There's been a slight problem...</div>}
 
       <p className="fs-4 fw-normal m-2">Love a bit of natural stuff...</p>
-{/* 
+
       {loading && !error && <div>Finding some places to spend all your money on !</div>}
       {!loading && !error && data && 
       <MiniCardNature props= {data}/>}
-      {!loading && error && <div>There's been a slight problem...</div>} */}
+      {!loading && error && <div>There's been a slight problem...</div>}
 
       <Footer />
     </main>

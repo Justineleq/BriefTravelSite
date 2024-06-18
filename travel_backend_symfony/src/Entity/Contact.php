@@ -15,7 +15,7 @@ class Contact
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Groups('api_contact_new, api_contact_index')]
+    #[Groups('api_contact_index, api_contact_new')]
     #[ORM\Column(length: 255)]
     private ?string $Name = null;
 
@@ -38,7 +38,7 @@ class Contact
 
     #[Groups('api_contact_new, api_contact_index')]
     #[ORM\ManyToOne(inversedBy: 'contacts')]
-    private ?status $status = null;
+    private ?Status $status = null;
 
     public function getId(): ?int
     {
@@ -105,12 +105,12 @@ class Contact
         return $this;
     }
 
-    public function getStatus(): ?status
+    public function getStatus(): ?Status
     {
         return $this->status;
     }
 
-    public function setStatus(?status $status): static
+    public function setStatus(?Status $status): static
     {
         $this->status = $status;
 
