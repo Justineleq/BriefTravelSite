@@ -35,6 +35,10 @@ class Reservation
     #[ORM\ManyToOne(inversedBy: 'reservations')]
     private ?Status $status = null;
 
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    private ?Holiday $holiday = null;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -99,4 +103,17 @@ class Reservation
 
         return $this;
     }
+
+    public function getHoliday(): ?Holiday
+    {
+        return $this->holiday;
+    }
+
+    public function setHoliday(?Holiday $holiday): static
+    {
+        $this->holiday = $holiday;
+
+        return $this;
+    }
+
 }

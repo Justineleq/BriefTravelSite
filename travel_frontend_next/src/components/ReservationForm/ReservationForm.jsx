@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import "./ReservationForm.css";
 
 export default function ReservationForm(props) {
@@ -14,8 +14,7 @@ export default function ReservationForm(props) {
             id="inputName4"
             name="name"
             placeholder="Enter your first name here"
-            // value={props.data.name}
-            // onChange={handleChange}
+
           />
         </div>
         <div className="form-group col-12 mb-3 d-flex flex-column align-items-center">
@@ -26,8 +25,7 @@ export default function ReservationForm(props) {
             id="inputSurname4"
             name="surname"
             placeholder="Then your last name"
-            // value={data.surname}
-            // onChange={handleChange}
+
           />
         </div>
         <div className="form-group col-12 mb-3 d-flex flex-column align-items-center">
@@ -38,8 +36,7 @@ export default function ReservationForm(props) {
             id="inputEmail4"
             name="email"
             placeholder="Correct email with a little @ please"
-            // value={data.email}
-            // onChange={handleChange}
+
           />
         </div>
         <div className="form-group col-12 mb-3 d-flex flex-column align-items-center">
@@ -49,10 +46,10 @@ export default function ReservationForm(props) {
             id="floatingTextarea"
             name="message"
             placeholder="Write your message here"
-            // value={data.message}
-            // onChange={handleChange}
+
           ></textarea>
         </div>
+        {/* <input type="hidden" name="holiday_id" value="{{ holiday.id }}"></input> */}
         <div className="form-group col-12 mb-3 d-flex flex-column align-items-center">
           <button type="submit" className="btn btn-primary">Send</button>
         </div>

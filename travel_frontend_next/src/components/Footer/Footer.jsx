@@ -1,4 +1,5 @@
 
+// looks great on phone but not on laptop. When in Destinations looks rubbish
 import "./Footer.css";
 import { Image } from "react-bootstrap";
 

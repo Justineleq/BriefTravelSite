@@ -1,4 +1,5 @@
 
+// recover image, and use this instead of looking for the image evrytime
 
 export function HolidayImages() {
     return (

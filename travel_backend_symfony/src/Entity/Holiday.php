@@ -66,10 +66,17 @@ class Holiday
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'holiday')]
     private Collection $users;
 
+    /**
+     * @var Collection<int, Reservation>
+     */
+    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'holiday')]
+    private Collection $reservations;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->users = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
 
     }
 
@@ -232,6 +239,36 @@ class Holiday
     {
         if ($this->users->removeElement($user)) {
             $user->removeHoliday($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reservation>
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): static
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations->add($reservation);
+            $reservation->setHoliday($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): static
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getHoliday() === $this) {
+                $reservation->setHoliday(null);
+            }
         }
 
         return $this;

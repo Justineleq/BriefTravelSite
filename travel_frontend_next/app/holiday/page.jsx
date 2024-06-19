@@ -11,8 +11,6 @@ import { useEffect, useState } from "react";
 
 export default function Holidays() {
 
-  
-  
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(false); 
   const [data, setData] = useState(null); 
@@ -20,7 +18,7 @@ export default function Holidays() {
   useEffect(() => {
    
     try {
-      fetch("http://127.0.0.1:8000/api/holidays" )
+      fetch("http://127.0.0.1:8000/api/holidays/")
         .then((response) => response.json()) 
         .then((data) => {
           setLoading(false); 
@@ -44,9 +42,5 @@ export default function Holidays() {
      <Footer/>
     </main>
 
-    
-
-
-       
   );
 }

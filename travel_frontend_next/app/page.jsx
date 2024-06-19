@@ -11,8 +11,6 @@ import MiniCardNature from "@/src/components/MiniCardNature/MiniCardNature";
 
 import { useEffect, useState } from 'react';
 
-
-
 export default function Home(props) {
 
 // console.log(props);

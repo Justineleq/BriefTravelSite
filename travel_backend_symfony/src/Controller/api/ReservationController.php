@@ -3,6 +3,7 @@
 namespace App\Controller\api;
 
 use App\Entity\Reservation;
+use App\Repository\HolidayRepository;
 use App\Repository\ReservationRepository;
 use App\Repository\StatusRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,7 +31,8 @@ class ReservationController extends AbstractController
         EntityManagerInterface $em, 
         SerializerInterface $serializer, 
         ValidatorInterface $validator,
-        StatusRepository $statusRepo
+        StatusRepository $statusRepo,
+        HolidayRepository $holidayRepo,
         ): Response
     {
         $reservation = $serializer->deserialize($request->getContent(), Reservation::class, 'json');
@@ -46,10 +48,12 @@ class ReservationController extends AbstractController
             }
             return $this->json($messages, Response::HTTP_UNPROCESSABLE_ENTITY);
         } else {
-
+            // add default status 
             $status = $statusRepo->findBy(['name' => 'Unread']);
 
             $reservation->setStatus($status[0]);
+
+            // add holidayId
 
             $em->persist($reservation);
             $em->flush();

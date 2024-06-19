@@ -1,6 +1,6 @@
 
 
-
+// use this component eventually in [holidayId]
 
 export default function HolidayDetails(props) {
   console.log(props);

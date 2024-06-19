@@ -22,6 +22,7 @@ export default function HolidayCard(props) {
                 category: holiday.category
               }
           }}
+          
 
        >
                 <p>{holiday.Destination}</p>
@@ -35,7 +36,6 @@ export default function HolidayCard(props) {
                 />
             
             </Link>
-
         ))}
 
     </div>

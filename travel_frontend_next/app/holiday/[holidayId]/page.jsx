@@ -57,12 +57,6 @@ const [error, setError] = useState(false);
   }
  }
 
-
-
-
-
-
-
 // Formatting the date
 let startDate = new Date(props.searchParams.startDate);
 
@@ -113,4 +107,3 @@ startDate = startDate.toLocaleDateString('en-GB', dateFormat)
 
   );
 }
-
