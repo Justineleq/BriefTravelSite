@@ -22,6 +22,8 @@ export default function ContactPage() {
 
 
 function handleFormsubmit(event) {
+  console.log(event, 'click contact');
+
     event.preventDefault();
     const name = (event.target[0].value);
     const surname = (event.target[1].value);

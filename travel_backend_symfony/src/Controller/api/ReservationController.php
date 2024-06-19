@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-#[Route('/api/reservation', name: 'app_api_reservation')]
+#[Route('/api/reservation', name: 'app_api_reservation_')]
 class ReservationController extends AbstractController
 {
     #[Route('s', name: 'index')]
@@ -20,7 +20,7 @@ class ReservationController extends AbstractController
     {
         $reservations =  $reservationRepository->findAll();
 
-        return $this->json(data: $reservations, context: ['api_reservation_index']);
+        return $this->json(data: $reservations);
     }
 
     #[Route('/new', name: 'new', methods: ['POST', 'GET'])]
@@ -31,7 +31,7 @@ class ReservationController extends AbstractController
         ValidatorInterface $validator
         ): Response
     {
-        $reservation = $serializer->deserialize($request->getContent(), Reservation::class, 'json', context: ['groups' => 'api_reservation_new']);
+        $reservation = $serializer->deserialize($request->getContent(), Reservation::class, 'json');
 
         $errors = $validator->validate($reservation);
 
