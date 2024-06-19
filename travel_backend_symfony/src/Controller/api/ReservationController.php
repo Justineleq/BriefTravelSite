@@ -4,6 +4,7 @@ namespace App\Controller\api;
 
 use App\Entity\Reservation;
 use App\Repository\ReservationRepository;
+use App\Repository\StatusRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,7 +29,8 @@ class ReservationController extends AbstractController
         Request $request, 
         EntityManagerInterface $em, 
         SerializerInterface $serializer, 
-        ValidatorInterface $validator
+        ValidatorInterface $validator,
+        StatusRepository $statusRepo
         ): Response
     {
         $reservation = $serializer->deserialize($request->getContent(), Reservation::class, 'json');
@@ -44,6 +46,11 @@ class ReservationController extends AbstractController
             }
             return $this->json($messages, Response::HTTP_UNPROCESSABLE_ENTITY);
         } else {
+
+            $status = $statusRepo->findBy(['name' => 'Unread']);
+
+            $reservation->setStatus($status[0]);
+
             $em->persist($reservation);
             $em->flush();
 
